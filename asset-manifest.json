@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/people-partner-ai/static/css/main.b5e4bdf4.css",
+    "main.js": "/people-partner-ai/static/js/main.634df94b.js",
+    "index.html": "/people-partner-ai/index.html",
+    "main.b5e4bdf4.css.map": "/people-partner-ai/static/css/main.b5e4bdf4.css.map",
+    "main.634df94b.js.map": "/people-partner-ai/static/js/main.634df94b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b5e4bdf4.css",
+    "static/js/main.634df94b.js"
+  ]
+}
