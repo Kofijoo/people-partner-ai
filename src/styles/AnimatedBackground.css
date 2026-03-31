@@ -1,0 +1,71 @@
+/* Animated Background – L&D / Corporate Tone */
+.animated-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Base floating shape */
+.floating-shape {
+  position: absolute;
+  border-radius: 999px;
+  opacity: 0.06;
+  filter: blur(2px);
+  background: linear-gradient(
+    135deg,
+    rgba(100, 116, 139, 0.65),
+    rgba(148, 163, 184, 0.65)
+  );
+  animation: float 30s ease-in-out infinite;
+}
+
+/* Shape sizing & placement */
+.shape-1 { width: 220px; height: 220px; top: 8%;  left: 10%; }
+.shape-2 { width: 160px; height: 160px; top: 18%; right: 12%; }
+.shape-3 { width: 140px; height: 140px; top: 42%; left: 14%; }
+.shape-4 { width: 200px; height: 200px; top: 58%; right: 18%; }
+.shape-5 { width: 150px; height: 150px; top: 72%; left: 48%; }
+.shape-6 { width: 180px; height: 180px; top: 26%; left: 44%; }
+.shape-7 { width: 140px; height: 140px; top: 84%; right: 16%; }
+.shape-8 { width: 160px; height: 160px; bottom: 6%; left: 26%; }
+
+/* Gentle motion (low distraction, professional) */
+@keyframes float {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(14px, -18px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Ensure content stays above background */
+.about-container,
+.page-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .floating-shape {
+    animation: none;
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .shape-1 { width: 160px; height: 160px; }
+  .shape-2 { width: 120px; height: 120px; }
+  .shape-3 { width: 100px; height: 100px; }
+  .shape-4 { width: 150px; height: 150px; }
+  .shape-5 { width: 110px; height: 110px; }
+  .shape-6 { width: 130px; height: 130px; }
+  .shape-7 { width: 110px; height: 110px; }
+  .shape-8 { width: 120px; height: 120px; }
+}

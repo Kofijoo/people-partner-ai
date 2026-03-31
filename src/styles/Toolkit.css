@@ -1,0 +1,67 @@
+/* Toolkit Specific Styles */
+.toolkit-grid {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.toolkit-category {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.toolkit-category h2 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toolkit-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tool-tag {
+  background: #ffffff;
+  color: #555;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid #e5e5e5;
+  transition: all 0.3s ease;
+}
+
+.tool-tag:hover {
+  background: #667eea;
+  color: #ffffff;
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+  .toolkit-category {
+    padding: 1.5rem;
+  }
+  
+  .toolkit-category h2 {
+    font-size: 1.2rem;
+  }
+  
+  .tool-tag {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
