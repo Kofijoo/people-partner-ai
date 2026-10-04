@@ -1,5 +1,15 @@
-import React from 'react';
+import { motion } from 'motion/react';
 import AnimatedBackground from '../components/AnimatedBackground';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } }
+};
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } }
+};
 
 function Education() {
   const education = [
@@ -14,8 +24,7 @@ function Education() {
       link: "https://www.chsi.com.cn/xlrz/bgcx.jsp?v=12846877-223-F82B0102",
       recognition: {
         label: "Recognised by HK-dir",
-        detail: "Equivalent to a Norwegian 2-year Master’s degree (120 ECTS), plus 1 additional year of master’s-level education."
-        // Add HK-dir document link here if you have a view-only URL
+        detail: "Equivalent to a Norwegian 2-year Master's degree (120 ECTS), plus 1 additional year of master's-level education."
       }
     },
     {
@@ -24,24 +33,22 @@ function Education() {
       period: "2022–2024",
       grade: "Distinction",
       highlights: [
-        "Master’s-level training at a Norwegian public university",
+        "Master's-level training at a Norwegian public university",
         "Focus on cross-cultural communication and global policy (useful for global L&D environments)"
       ],
       verificationLabel: "Verify Credential →",
       link: "https://app.vitnemalsportalen.no/vp/shared/CB4FE2E65C384FFD9D37D41C780F362A"
     },
     {
-      degree: "Bachelor of Education (Early Childhood Education)",
+      degree: "Bachelor of Education (Education)",
       institution: "University of Education, Winneba, Ghana",
       period: "2014–2018",
-      grade: "First Class Honours",
       highlights: [
         "Strong foundation in learning principles, facilitation, and learner support"
       ],
       recognition: {
         label: "Recognised by HK-dir",
-        detail: "Equivalent to a Norwegian Bachelor’s degree (180 ECTS) and aligned with Norway’s academic requirements for teaching-related roles."
-        // Add HK-dir document link here if you have a view-only URL
+        detail: "Equivalent to a Norwegian Bachelor's degree (180 ECTS) and aligned with Norway's academic requirements for teaching-related roles."
       }
     }
   ];
@@ -50,14 +57,32 @@ function Education() {
     <section className="page-section">
       <AnimatedBackground />
       <div className="page-container">
-        <h1 className="page-title">Education</h1>
-        <p className="page-intro">
+        <motion.h1
+          className="page-title"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Education
+        </motion.h1>
+        <motion.p
+          className="page-intro"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        >
           Academic background supporting Learning & Development work across digital learning, facilitation, and global collaboration.
-        </p>
+        </motion.p>
 
-        <div className="cards-grid">
+        <motion.div
+          className="cards-grid"
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
           {education.map((edu, index) => (
-            <div key={index} className="info-card">
+            <motion.div key={index} className="info-card" variants={fadeUp}>
               <h3>{edu.degree}</h3>
               <p className="card-institution">{edu.institution}</p>
               <p className="card-period">{edu.period}</p>
@@ -90,11 +115,10 @@ function Education() {
                   </a>
                 </p>
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Optional: If you want a short callout for Norway context */}
         <div className="section-block" style={{ marginTop: '2rem' }}>
           <p className="page-intro" style={{ marginBottom: 0 }}>
             Note: HK-dir recognition documents and supporting certificates can be shared upon request.

@@ -1,5 +1,20 @@
-import React from 'react';
+import { motion } from 'motion/react';
 import AnimatedBackground from '../components/AnimatedBackground';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } }
+};
+
+const slideLeft = {
+  hidden: { opacity: 0, x: -32 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } }
+};
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } }
+};
 
 function Experience() {
   const alignmentHighlights = [
@@ -47,51 +62,6 @@ function Experience() {
       skills: ["Stakeholder partnership", "Performance consulting", "Programme design", "Cross-functional collaboration", "Learning analytics"]
     },
     {
-      title: "AI & Learning Systems Developer",
-      company: "JOMACS",
-      period: "Jun 2024 – Jun 2025",
-      location: "Alberta, Canada · Remote",
-      description:
-        "Built and scaled an adaptive learning platform from the ground up, then automated its infrastructure for enterprise-level reliability. Worked at the intersection of people development and technical implementation — designing the experience while owning the deployment pipeline.",
-      bullets: [
-        "Built adaptive learning system that increased engagement by 40% and achieved 85% course completion through personalised content delivery",
-        "Reduced instructor support requests by 28% by embedding intelligent feedback and analytics directly into the platform",
-        "Automated infrastructure using Docker, Kubernetes, and GitHub Actions CI/CD — enabling scalable, zero-downtime content delivery",
-        "Implemented xAPI and SCORM tracking to surface learner behaviour data and give instructors actionable analytics dashboards"
-      ],
-      skills: ["AI systems", "Docker", "Kubernetes", "CI/CD", "xAPI", "Python", "Learning analytics", "Platform design"]
-    },
-    {
-      title: "Digital Learning Systems Designer",
-      company: "First Talk Education",
-      period: "Mar 2021 – Apr 2022",
-      location: "Changxing County, Zhejiang, China · Hybrid",
-      description:
-        "Implemented a full digital skills learning system from methodology to interface — integrating a structured framework into interactive, age-appropriate digital experiences. Focused on reducing teacher workload while improving learner outcomes.",
-      bullets: [
-        "Improved phonics recognition scores by 45%",
-        "Reduced teacher preparation time by 60% through systematised digital content",
-        "78% of learners reached proficiency 3 months ahead of schedule",
-        "94% parent satisfaction rate"
-      ],
-      skills: ["Digital learning systems", "UX for learning", "Content design", "Outcome measurement"]
-    },
-    {
-      title: "EdTech Platform Designer",
-      company: "Alo7",
-      period: "Jan 2020 – Feb 2021",
-      location: "Ningbo, Zhejiang, China · Hybrid",
-      description:
-        "Designed and built interactive learning experiences using Three.js and WebGL, transforming abstract concepts into immersive digital environments. Collaborated directly with subject matter experts to translate complex content into learner-centred experiences.",
-      bullets: [
-        "Increased engagement by 75% through interactive 3D educational content",
-        "92% learner satisfaction across the platform",
-        "Platform adopted across 12 schools reaching 3,000+ learners",
-        "Reduced concept comprehension time by 35%"
-      ],
-      skills: ["Three.js", "WebGL", "Platform design", "SME collaboration", "3D visualisation"]
-    },
-    {
       title: "Earlier Experience",
       company: "Brainhill International School · Kaneshie Awudome JHS · Global Access Academy",
       period: "2013 – 2019",
@@ -107,35 +77,74 @@ function Experience() {
     <section className="page-section">
       <AnimatedBackground />
       <div className="page-container">
-        <h1 className="page-title">Experience</h1>
-        <p className="page-intro">
-          5+ years building AI-powered systems, partnering with technology teams, and driving measurable
+        <motion.h1
+          className="page-title"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Experience
+        </motion.h1>
+        <motion.p
+          className="page-intro"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Building AI-powered systems, partnering with technology teams, and driving measurable
           behaviour change in organisations. My background sits at the intersection of People development
           and technical implementation.
-        </p>
+        </motion.p>
 
         {/* Vipps Alignment Block */}
         <div className="section-block">
-          <h2 className="section-divider">What I bring to a People Partner + AI role</h2>
-          <p className="page-intro" style={{ marginTop: 0 }}>
+          <motion.h2
+            className="section-divider"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            What I bring to a People Partner + AI role
+          </motion.h2>
+          <motion.p
+            className="page-intro"
+            style={{ marginTop: 0 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          >
             These are the capabilities I've built through real work — not theory. Each one maps directly
             to what technology-focused People teams need to move from AI experimentation to operational reality.
-          </p>
+          </motion.p>
 
-          <div className="projects-grid">
+          <motion.div
+            className="projects-grid"
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+          >
             {alignmentHighlights.map((item, idx) => (
-              <div key={idx} className="project-card">
+              <motion.div key={idx} className="project-card" variants={fadeUp}>
                 <h2>{item.title}</h2>
                 <p className="project-description">{item.description}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Timeline */}
-        <div className="timeline">
+        <motion.div
+          className="timeline"
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+        >
           {experiences.map((exp, index) => (
-            <div key={index} className="timeline-item">
+            <motion.div key={index} className="timeline-item" variants={slideLeft}>
               <div className="timeline-content">
                 <h2>{exp.title}</h2>
                 <h3>{exp.company}</h3>
@@ -157,9 +166,9 @@ function Experience() {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

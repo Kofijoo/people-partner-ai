@@ -1,5 +1,15 @@
-import React from 'react';
+import { motion } from 'motion/react';
 import AnimatedBackground from '../components/AnimatedBackground';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } }
+};
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } }
+};
 
 function Projects() {
   const featuredProjects = [
@@ -61,45 +71,15 @@ function Projects() {
 
   const caseStudies = [
     {
-      title: "Adaptive Learning System — JOMACS",
-      period: "Jun 2024 – Jun 2025",
-      challenge:
-        "A digital education platform was losing learners mid-course. Facilitators had no visibility into where people were dropping off or why — they only saw completion rates after the fact.",
-      solution:
-        "Built an adaptive platform with embedded xAPI tracking and an analytics dashboard. The system adjusted content pacing based on performance signals and flagged at-risk learners before they dropped out. Automated the deployment pipeline using Docker, Kubernetes, and GitHub Actions.",
-      outcomes: [
-        "Learner engagement increased by 40%",
-        "Course completion reached 85%",
-        "Facilitator support requests reduced by 28%",
-        "Infrastructure scaled to zero-downtime delivery"
-      ]
-    },
-    {
       title: "Sales Enablement Programme — Tofflon Joy",
       period: "Jul 2025 – Present",
       challenge:
         "Sales and technical teams were inconsistent in how they presented complex machinery solutions to clients. Product knowledge existed, but confidence in customer conversations was low.",
       solution:
-        "Partnered with senior leaders to map the capability gaps, then designed a structured programme covering product knowledge, consultative selling, and objection handling. Built 15+ modules with scenario-based practice and embedded feedback.",
+        "Partnered with senior leaders to map the capability gaps, then designed a structured programme covering product knowledge, consultative selling, and objection handling. Built modules with scenario-based practice and embedded feedback.",
       outcomes: [
-        "88% completion rate in first quarter",
-        "82% of participants reported increased confidence in customer-facing roles",
-        "Recognised internally for cross-functional collaboration model",
-        "Programme adopted as the standard approach for new product launches"
-      ]
-    },
-    {
-      title: "STEM Learning Platform — Alo7",
-      period: "Jan 2020 – Feb 2021",
-      challenge:
-        "Abstract STEM concepts were disengaging students across 12 schools. Traditional classroom materials weren't translating to digital environments effectively.",
-      solution:
-        "Designed interactive 3D learning experiences using Three.js and WebGL, working directly with subject matter experts to transform complex content into immersive, interactive environments.",
-      outcomes: [
-        "STEM engagement increased by 75%",
-        "92% learner satisfaction across the platform",
-        "Adopted across 12 schools reaching 3,000+ students",
-        "Concept comprehension time reduced by 35%"
+        "Designed learning programme adopted across sales and technical functions",
+        "Recognised internally for cross-functional collaboration model"
       ]
     }
   ];
@@ -108,16 +88,35 @@ function Projects() {
     <section className="page-section">
       <AnimatedBackground />
       <div className="page-container">
-        <h1 className="page-title">Projects &amp; AI Systems</h1>
-        <p className="page-intro">
+        <motion.h1
+          className="page-title"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Projects &amp; AI Systems
+        </motion.h1>
+        <motion.p
+          className="page-intro"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        >
           A selection of AI systems, analytics platforms, and people-focused tools I've built from
           scratch. These aren't concepts or frameworks — they're working systems with measurable outcomes.
-        </p>
+        </motion.p>
 
         {/* Featured Projects */}
         <div className="section-block">
           {featuredProjects.map((project, index) => (
-            <div key={index} className="featured-presentation">
+            <motion.div
+              key={index}
+              className="featured-presentation"
+              initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            >
               <div className="presentation-thumbnail">
                 <img src={project.thumbnail} alt={project.title} />
               </div>
@@ -139,18 +138,39 @@ function Projects() {
                   View Project →
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Case Studies */}
-        <h2 className="section-divider">Case Studies</h2>
-        <p className="page-intro" style={{ marginTop: 0 }}>
-          Three problems, three systems built to solve them — with the numbers to show what changed.
-        </p>
-        <div className="projects-grid">
+        <motion.h2
+          className="section-divider"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Case Studies
+        </motion.h2>
+        <motion.p
+          className="page-intro"
+          style={{ marginTop: 0 }}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+        >
+          A real programme, a real problem, and what changed.
+        </motion.p>
+        <motion.div
+          className="projects-grid"
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
           {caseStudies.map((cs, index) => (
-            <div key={index} className="project-card case-study-card">
+            <motion.div key={index} className="project-card case-study-card" variants={fadeUp}>
               <h2>{cs.title}</h2>
               <p className="project-meta">{cs.period}</p>
 
@@ -172,9 +192,9 @@ function Projects() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
