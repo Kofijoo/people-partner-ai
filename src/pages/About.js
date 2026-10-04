@@ -24,7 +24,7 @@ function About() {
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         >
           <img
-            src={`${process.env.PUBLIC_URL}/images/profile_photo.png`}
+            src={`${process.env.PUBLIC_URL}/images/slate_blue_02.png`}
             alt="Joshua Agyekum - People & AI Systems Partner"
           />
         </motion.div>
