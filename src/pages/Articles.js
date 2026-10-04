@@ -16,7 +16,7 @@ function Articles() {
     {
       title: "Natural Science & Real Life Learning",
       journal: "International Journal of Management Sciences and Business Research (IJMSBR)",
-      year: "2023",
+      year: "2021",
       role: "Lead Author",
       focus: "Explores how real-life context improves understanding and retention.",
       link: "https://www.ijmsbr.com/publications-of-ijmsbr/article/1737/#abstract"
@@ -24,7 +24,7 @@ function Articles() {
     {
       title: "STEAM Education Model",
       journal: "International Journal of Management Sciences and Business Research (IJMSBR)",
-      year: "2023",
+      year: "2021",
       role: "Sole Author",
       focus: "Examines integrated learning models that support problem-solving and applied skills.",
       link: "https://www.ijmsbr.com/publications-of-ijmsbr/article/1728/#abstract"
@@ -32,7 +32,7 @@ function Articles() {
     {
       title: "Classroom Management & Student Well-being",
       journal: "International Journal of Management Sciences and Business Research (IJMSBR)",
-      year: "2023",
+      year: "2021",
       role: "Co-Author",
       focus: "Looks at learning environments that support engagement, safety, and well-being.",
       link: "https://www.ijmsbr.com/publications-of-ijmsbr/article/1680/#abstract"

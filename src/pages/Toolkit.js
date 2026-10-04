@@ -81,10 +81,10 @@ function Toolkit() {
       title: "Languages",
       icon: "🌍",
       items: [
-        "English (Native)",
-        "Norwegian (B1)",
-        "Mandarin (HSK III)",
-        "Ghanaian (Native)"
+        "English (Professional)",
+        "Norwegian (B1, Listening B2)",
+        "Mandarin (HSK 3)",
+        "Akan/Twi (Heritage)"
       ]
     }
   ];
