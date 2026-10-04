@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/people-partner-ai/static/css/main.b5e4bdf4.css",
-    "main.js": "/people-partner-ai/static/js/main.9acab0eb.js",
+    "main.js": "/people-partner-ai/static/js/main.ba4566a4.js",
     "index.html": "/people-partner-ai/index.html",
     "main.b5e4bdf4.css.map": "/people-partner-ai/static/css/main.b5e4bdf4.css.map",
-    "main.9acab0eb.js.map": "/people-partner-ai/static/js/main.9acab0eb.js.map"
+    "main.ba4566a4.js.map": "/people-partner-ai/static/js/main.ba4566a4.js.map"
   },
   "entrypoints": [
     "static/css/main.b5e4bdf4.css",
-    "static/js/main.9acab0eb.js"
+    "static/js/main.ba4566a4.js"
   ]
 }
