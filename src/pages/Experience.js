@@ -54,9 +54,9 @@ function Experience() {
       description:
         "Partnered with sales and technical leaders in industrial manufacturing to identify capability gaps and design performance-focused development programmes. Built scalable systems covering product knowledge, consultative selling, and operational excellence across a complex machinery portfolio.",
       bullets: [
-        "Designed 15+ learning modules adopted across sales and technical functions — 88% completion rate in Q1",
-        "Drove measurable behaviour change in consultative selling: 82% of participants reported increased confidence in customer-facing roles",
-        "Recognised internally as a best-practice model for cross-functional collaboration between People and commercial teams",
+        "Designed learning modules adopted across sales and technical functions",
+        "Focused on product knowledge, consultative selling, and operational confidence",
+        "Recognised internally for cross-functional collaboration between People and commercial teams",
         "Partnered directly with senior leaders to align programme design to business outcomes, not just training completions"
       ],
       skills: ["Stakeholder partnership", "Performance consulting", "Programme design", "Cross-functional collaboration", "Learning analytics"]

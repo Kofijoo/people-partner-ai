@@ -31,7 +31,6 @@ function Education() {
       degree: "Master of Science (International Relations)",
       institution: "Norwegian University of Life Sciences (NMBU), Norway",
       period: "2022–2024",
-      grade: "Distinction",
       highlights: [
         "Master's-level training at a Norwegian public university",
         "Focus on cross-cultural communication and global policy (useful for global L&D environments)"
