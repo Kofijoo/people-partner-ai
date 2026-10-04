@@ -1,5 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { motion } from 'motion/react';
 import AnimatedBackground from '../components/AnimatedBackground';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
+};
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.07 } }
+};
 
 function Certifications() {
   const [selectedCert, setSelectedCert] = useState(null);
@@ -150,19 +161,45 @@ function Certifications() {
     <section className="page-section">
       <AnimatedBackground />
       <div className="page-container">
-        <h1 className="page-title">Certifications &amp; Credentials</h1>
-        <p className="page-intro">
+        <motion.h1
+          className="page-title"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Certifications &amp; Credentials
+        </motion.h1>
+        <motion.p
+          className="page-intro"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        >
           Credentials across AI, cloud infrastructure, data, people systems, and product management —
           the technical and professional foundation behind the work.
-        </p>
+        </motion.p>
 
         {sections.map((section, sectionIndex) => (
           <div key={sectionIndex} className="section-block">
-            <h2 className="section-divider">{section.title}</h2>
+            <motion.h2
+              className="section-divider"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {section.title}
+            </motion.h2>
 
-            <div className="certifications-grid">
+            <motion.div
+              className="certifications-grid"
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+            >
               {section.items.map((cert, index) => (
-                <div key={index} className="cert-card">
+                <motion.div key={index} className="cert-card" variants={fadeUp}>
                   {cert.image && (
                     <div
                       className="cert-thumbnail"
@@ -213,9 +250,9 @@ function Certifications() {
                       </a>
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         ))}
 
