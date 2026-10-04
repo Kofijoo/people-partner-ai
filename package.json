@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://kofijoo.github.io/people-partner-ai",
   "dependencies": {
+    "motion": "^12.38.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.0",
@@ -11,7 +12,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "node ./node_modules/gh-pages/bin/gh-pages.js -d build",
+    "deploy": "node ./node_modules/gh-pages/bin/gh-pages.js -d build --dotfiles",
     "start": "node ./node_modules/react-scripts/bin/react-scripts.js start",
     "build": "node ./node_modules/react-scripts/bin/react-scripts.js build",
     "test": "node ./node_modules/react-scripts/bin/react-scripts.js test",
